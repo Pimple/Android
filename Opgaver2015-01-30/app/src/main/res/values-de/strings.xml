@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Zuordnungen! 2015-01-30</string>
+    <string name="hello_world">Machen Sie meinen Tag, Punk!</string>
+    <string name="action_settings">Settings</string>
+    <string name="firstday">Du hast mein Tag einmal gemacht.</string>
+    <string name="secondday">Du hast mein Tag zweimal gemacht.</string>
+    <string name="makemyday1">Du hast mein Tag </string>
+    <string name="makemyday2"> mal gemacht.</string>
+</resources>

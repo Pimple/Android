@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Opgaver 2015-01-30</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="firstday">You\'ve made my day once.</string>
+    <string name="secondday">You\'ve made my day twice.</string>
+    <string name="makemyday1">You\'ve made my day </string>
+    <string name="makemyday2"> times.</string>
+</resources>

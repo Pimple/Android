@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Assignments 2014-02-04</string>
+    <string name="action_settings">Don\'t care</string>
+    <string name="name">Name</string>
+    <string name="address">Address</string>
+    <string name="phone">Phone</string>
+    <string name="email">E-mail</string>
+    <string name="sex">Gender</string>
+    <string name="accommodations">Accommodation type</string>
+    <string name="commit">Save</string>
+    <string name="rollback">Reset</string>
+
+    <string-array name="genders">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Custom</item>
+    </string-array>
+
+
+</resources>
