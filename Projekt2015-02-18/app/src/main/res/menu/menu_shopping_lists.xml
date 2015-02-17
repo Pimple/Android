@@ -1,14 +1,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto"
       xmlns:tools="http://schemas.android.com/tools"
-      tools:context=".MainActivity">
+      tools:context="henrikbn.projekt2015_02_18.Shopping_lists">
 
     <item android:id="@+id/distributors"
           android:title="@string/distributors"/>
 
     <item android:id="@+id/product_lists"
           android:title="@string/product_lists"/>
-
-    <item android:id="@+id/shopping_lists"
-          android:title="@string/shopping_lists"/>
 </menu>

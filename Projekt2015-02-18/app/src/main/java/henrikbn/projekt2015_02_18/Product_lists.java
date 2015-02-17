@@ -3,21 +3,19 @@ package henrikbn.projekt2015_02_18;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 
 
-public class MainActivity extends ActionBarActivity
+public class Product_lists extends ActionBarActivity
 {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
-		// getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+		setContentView(R.layout.activity_product_lists);
+		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		// getActionBar().setDisplayHomeAsUpEnabled(true);
-
 	}
 
 
@@ -25,8 +23,7 @@ public class MainActivity extends ActionBarActivity
 	public boolean onCreateOptionsMenu(Menu menu)
 	{
 		// Inflate the menu; this adds items to the action bar if it is present.
-		MenuInflater menuInflater = getMenuInflater();
-		menuInflater.inflate(R.menu.menu_main, menu);
+		getMenuInflater().inflate(R.menu.menu_product_lists, menu);
 		return true;
 	}
 
@@ -42,8 +39,6 @@ public class MainActivity extends ActionBarActivity
 		switch (id)
 		{
 			case (R.id.distributors):
-				break;
-			case (R.id.product_lists):
 				break;
 			case (R.id.shopping_lists):
 				break;
