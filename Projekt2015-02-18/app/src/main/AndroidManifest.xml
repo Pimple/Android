@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="henrikbn.projekt2015_02_18" >
-    <uses-sdk android:minSdkVersion="7"
-              android:targetSdkVersion="16" />
+    <uses-sdk android:minSdkVersion="11"/>
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+
+        <item android:id="@+id/action_settings"
+              android:title="@string/action_settings"
+              android:showAsAction="never" />
+
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name" >
@@ -17,6 +21,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".Distributors"
             android:label="@string/distributors"
@@ -25,6 +30,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="henrikbn.projekt2015_02_18.MainActivity" />
         </activity>
+
         <activity
             android:name=".Product_lists"
             android:label="@string/product_lists"
@@ -33,6 +39,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="henrikbn.projekt2015_02_18.MainActivity" />
         </activity>
+
         <activity
             android:name=".Shopping_lists"
             android:label="@string/shopping_lists"
