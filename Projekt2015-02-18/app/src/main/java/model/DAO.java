@@ -1,0 +1,46 @@
+package model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Created by HenrikBN on 18-02-2015.
+ */
+public class DAO
+{
+	private List<Distributor> distributors;
+	private List<ShoppingList> shoppingLists;
+
+	private static DAO instance;
+
+	private DAO()
+	{
+		distributors = new ArrayList<>();
+		shoppingLists = new ArrayList<>();
+		populate();
+	}
+
+	public static DAO getInstance()
+	{
+		if (instance == null)
+			instance = new DAO();
+		return instance;
+	}
+
+	public void populate()
+	{
+		Distributor bob = new Distributor("Bob", "Address boulevard 1");
+		Distributor yoloSwag = new Distributor("Derpenstein McYoloSwag", "Over there");
+		distributors.add(bob);
+		distributors.add(yoloSwag);
+
+		Product milk = bob.addProduct(6.95, "Milk");
+		Product bacon = bob.addProduct(5, "Bacon Deluxe");
+
+		Product milk2 = yoloSwag.addProduct(4.99, "Milk");
+		Product bacon2 = yoloSwag.addProduct(4.2, "Bacon");
+		Product shrubbery = yoloSwag.addProductOnSale(99.95, "Shrubbery");
+
+		bob.addProduct()
+	}
+}

@@ -3,15 +3,19 @@
 
     <string name="app_name">Projekt 2015-02-20</string>
     <string name="action_settings">Herp derp</string>
-
     <string name="hello_world">You have launched my app. It is pitch black. You are likely to be eaten by a grue.</string>
 
     <string name="distributors">Distributors</string>
     <string name="distributors_text">Manage your fences and druglords here.</string>
+    <string name="distributors_add">Add Distributor</string>
+    <string name="distributors_add_text">Harglarbl</string>
+    <string name="distributors_add_name">Name</string>
+    <string name="distributors_add_address">Address</string>
 
     <string name="product_lists">Product lists</string>
     <string name="product_lists_text">Add products here. The lists you add here will be sent to the chosen distributor, who will know he faces a terrible death if he fails to supply.</string>
 
     <string name="shopping_lists">Shopping lists</string>
     <string name="shopping_lists_text">Manage your shopping lists here. Remember to get some milk on the way home.</string>
+
 </resources>
