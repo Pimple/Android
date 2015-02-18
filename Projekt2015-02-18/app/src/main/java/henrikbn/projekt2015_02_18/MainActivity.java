@@ -1,5 +1,6 @@
 package henrikbn.projekt2015_02_18;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -36,16 +37,24 @@ public class MainActivity extends ActionBarActivity
 		int id = item.getItemId();
 
 		//noinspection SimplifiableIfStatement
+		Intent intent = null;
+
 		switch (id)
 		{
 			case (R.id.distributors):
-				break;
+				intent = new Intent(this, Distributors.class);
+				startActivity(intent);
+				return true;
 			case (R.id.product_lists):
-				break;
+				intent = new Intent(this, Product_lists.class);
+				startActivity(intent);
+				return true;
 			case (R.id.shopping_lists):
-				break;
+				intent = new Intent(this, Shopping_lists.class);
+				startActivity(intent);
+				return true;
+			default:
+				return super.onOptionsItemSelected(item);
 		}
-
-		return super.onOptionsItemSelected(item);
 	}
 }
