@@ -14,8 +14,8 @@ public class Product_lists extends ActionBarActivity
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_product_lists);
-		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-		// getActionBar().setDisplayHomeAsUpEnabled(true);
+		// getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+		getActionBar().setDisplayHomeAsUpEnabled(true);
 	}
 
 
@@ -23,7 +23,7 @@ public class Product_lists extends ActionBarActivity
 	public boolean onCreateOptionsMenu(Menu menu)
 	{
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.menu_product_lists, menu);
+		getMenuInflater().inflate(R.menu.menu_main, menu);
 		return true;
 	}
 

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Projekt 2015-02-18</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="app_name">Projekt 2015-02-20</string>
+    <string name="hello_world">You have launched my app. It is pitch black. You are likely to be eaten by a grue.</string>
     <string name="distributors">Distributors</string>
     <string name="product_lists">Product lists</string>
     <string name="shopping_lists">Shopping lists</string>
