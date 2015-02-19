@@ -13,12 +13,13 @@ import java.util.List;
 
 import model.DAO;
 import model.Distributor;
+import adapters.DistributorAdapter;
 
 
 public class Distributors extends ActionBarActivity
 {
 	private DAO dao;
-	private DistributorAdaptor distributorsAdapter;
+	private DistributorAdapter distributorsAdapter;
 	private List<Distributor> distributors;
 	private ListView listView;
 
@@ -30,7 +31,7 @@ public class Distributors extends ActionBarActivity
 
 		dao = DAO.getInstance();
 		distributors = dao.getDistributors();
-		distributorsAdapter = new DistributorAdaptor(this, distributors);
+		distributorsAdapter = new DistributorAdapter(this, distributors);
 
 		listView = (ListView) findViewById(R.id.listView);
 		listView.setAdapter(distributorsAdapter);
@@ -52,7 +53,7 @@ public class Distributors extends ActionBarActivity
 	{
 		Intent intent = new Intent(this, Distributors_Products.class);
 		Distributor distributor = (Distributor) listView.getItemAtPosition(position);
-		intent.putExtra("distributor", distributor);
+		intent.putExtra(ModelType.DISTRIBUTOR, distributor);
 		startActivity(intent);
 	}
 
@@ -78,7 +79,6 @@ public class Distributors extends ActionBarActivity
 		{
 			case (R.id.distributors_add):
 				intent = new Intent(this, Distributors_Add.class);
-				// TODO Add distributor
 				startActivity(intent);
 				return true;
 			default:

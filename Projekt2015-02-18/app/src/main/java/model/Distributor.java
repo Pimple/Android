@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Created by HenrikBN on 18-02-2015.
  */
-public class Distributor implements Comparable<Distributor>, Parcelable
+public class Distributor implements Comparable<Distributor>, Serializable
 {
 	private String name;
 	private String address;
@@ -84,17 +84,5 @@ public class Distributor implements Comparable<Distributor>, Parcelable
 	public void setAddress(String address)
 	{
 		this.address = address;
-	}
-
-	@Override
-	public int describeContents()
-	{
-		return 0;
-	}
-
-	@Override
-	public void writeToParcel(Parcel dest, int flags)
-	{
-
 	}
 }

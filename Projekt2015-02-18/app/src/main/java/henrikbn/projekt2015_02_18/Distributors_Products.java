@@ -7,11 +7,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import model.DAO;
 import model.Distributor;
 
 
 public class Distributors_Products extends ActionBarActivity
 {
+	private DAO dao = DAO.getInstance();
 	private Distributor distributor;
 
 	@Override
@@ -19,17 +21,33 @@ public class Distributors_Products extends ActionBarActivity
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.distributors_products);
+
 		Intent intent = getIntent();
-		distributor = (Distributor) intent.getSerializableExtra("distributor");
-		TextView textView = (TextView) findViewById(R.id.textView);
-		textView.setText(distributor.getName());
+		distributor = (Distributor) intent.getSerializableExtra(ModelType.DISTRIBUTOR);
+
+		if (distributor != null)
+			setTitle(distributor.getName());
+
+		// savedInstanceState.putSerializable(ModelType.DISTRIBUTOR, distributor);
+		// savedInstanceState.putString(ModelType.DISTRIBUTOR, distributor.getName());
+
+		// TextView textView = (TextView) findViewById(R.id.textView);
+		// textView.setText(distributor.getName());
+	}
+
+	@Override
+	protected void onRestoreInstanceState(Bundle savedInstanceState)
+	{
+		// distributor = (Distributor) savedInstanceState.getSerializable(ModelType.DISTRIBUTOR);
+		super.onRestoreInstanceState(savedInstanceState);
+		String distributorName = savedInstanceState.getString(ModelType.DISTRIBUTOR);
+		distributor = dao.getDistributor(distributorName);
 	}
 
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu)
 	{
-		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.menu_distributors_products, menu);
 		return true;
 	}
@@ -37,17 +55,17 @@ public class Distributors_Products extends ActionBarActivity
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item)
 	{
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 
-		//noinspection SimplifiableIfStatement
-		if (id == R.id.action_settings)
+		switch (id)
 		{
-			return true;
+			case (R.id.distributors_products_add):
+				Intent intent = new Intent(this, Distributors_Products_Add.class);
+				intent.putExtra(ModelType.DISTRIBUTOR, distributor);
+				startActivity(intent);
+				return true;
+			default:
+				return super.onOptionsItemSelected(item);
 		}
-
-		return super.onOptionsItemSelected(item);
 	}
 }

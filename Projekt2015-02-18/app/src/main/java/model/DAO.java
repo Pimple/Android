@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -54,6 +55,14 @@ public class DAO
 		list2.addPurchase(100, bacon);
 		list2.addPurchase(50, bacon2);
 		list2.addPurchase(5, prunejuice);
+	}
+
+	public Distributor getDistributor(String name)
+	{
+		for (Distributor distributor : distributors)
+			if (name.equals(distributor.getName()))
+				return distributor;
+		return null;
 	}
 
 	public List<Distributor> getDistributors()

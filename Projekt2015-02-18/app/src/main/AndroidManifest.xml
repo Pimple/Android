@@ -3,7 +3,7 @@
     package="henrikbn.projekt2015_02_18" >
 
     <uses-sdk
-        android:minSdkVersion="11"
+        android:minSdkVersion="16"
         android:targetSdkVersion="16" />
 
     <android:uses-permission
