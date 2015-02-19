@@ -3,9 +3,6 @@
       xmlns:tools="http://schemas.android.com/tools"
       tools:context="henrikbn.projekt2015_02_18.Distributors">
 
-    <item android:id="@+id/product_lists"
-          android:title="@string/product_lists"/>
-
-    <item android:id="@+id/shopping_lists"
-          android:title="@string/shopping_lists"/>
+    <item android:id="@+id/distributors_add"
+          android:title="@string/distributors_add"/>
 </menu>

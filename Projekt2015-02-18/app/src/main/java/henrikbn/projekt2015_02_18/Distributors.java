@@ -5,24 +5,62 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
+
+import java.util.List;
+
+import model.DAO;
+import model.Distributor;
 
 
 public class Distributors extends ActionBarActivity
 {
+	private DAO dao;
+	private DistributorAdaptor distributorsAdapter;
+	private List<Distributor> distributors;
+	private ListView listView;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_distributors);
+		setContentView(R.layout.distributors);
+
+		dao = DAO.getInstance();
+		distributors = dao.getDistributors();
+		distributorsAdapter = new DistributorAdaptor(this, distributors);
+
+		listView = (ListView) findViewById(R.id.listView);
+		listView.setAdapter(distributorsAdapter);
+
+		listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
+		{
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+			{
+				editDistributor(position);
+			}
+		});
+
 		// getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		// getActionBar().setDisplayHomeAsUpEnabled(true);
+	}
+
+	public void editDistributor(int position)
+	{
+		Intent intent = new Intent(this, Distributors_Products.class);
+		Distributor distributor = (Distributor) listView.getItemAtPosition(position);
+		intent.putExtra("distributor", distributor);
+		startActivity(intent);
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu)
 	{
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.menu_main, menu);
+		getMenuInflater().inflate(R.menu.menu_distributors, menu);
 		return true;
 	}
 
@@ -38,16 +76,9 @@ public class Distributors extends ActionBarActivity
 
 		switch (id)
 		{
-			case (R.id.distributors):
-				intent = new Intent(this, Distributors.class);
-				startActivity(intent);
-				return true;
-			case (R.id.product_lists):
-				intent = new Intent(this, Product_lists.class);
-				startActivity(intent);
-				return true;
-			case (R.id.shopping_lists):
-				intent = new Intent(this, Shopping_lists.class);
+			case (R.id.distributors_add):
+				intent = new Intent(this, Distributors_Add.class);
+				// TODO Add distributor
 				startActivity(intent);
 				return true;
 			default:

@@ -42,14 +42,6 @@
                 android:value="henrikbn.projekt2015_02_18.MainActivity" />
         </activity>
         <activity
-            android:name=".Product_lists"
-            android:label="@string/product_lists"
-            android:parentActivityName=".MainActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="henrikbn.projekt2015_02_18.MainActivity" />
-        </activity>
-        <activity
             android:name=".Shopping_lists"
             android:label="@string/shopping_lists"
             android:parentActivityName=".MainActivity" >
@@ -59,11 +51,27 @@
         </activity>
         <activity
             android:name=".Distributors_Add"
-            android:label="@string/title_activity_distributors__add"
+            android:label="@string/distributors_add"
             android:parentActivityName=".Distributors" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="henrikbn.projekt2015_02_18.Distributors" />
+        </activity>
+        <activity
+            android:name=".Distributors_Products"
+            android:label="@string/distributors_products"
+            android:parentActivityName=".Distributors" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="henrikbn.projekt2015_02_18.Distributors" />
+        </activity>
+        <activity
+            android:name=".Distributors_Products_Add"
+            android:label="@string/distributors_products_add"
+            android:parentActivityName=".Distributors_Products" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="henrikbn.projekt2015_02_18.Distributors_Products" />
         </activity>
     </application>
 

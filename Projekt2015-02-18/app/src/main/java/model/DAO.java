@@ -36,11 +36,28 @@ public class DAO
 
 		Product milk = bob.addProduct(6.95, "Milk");
 		Product bacon = bob.addProduct(5, "Bacon Deluxe");
+		Product mercedes = bob.addProductOnSale(9001.01, "Mercedes Benz");
 
 		Product milk2 = yoloSwag.addProduct(4.99, "Milk");
 		Product bacon2 = yoloSwag.addProduct(4.2, "Bacon");
 		Product shrubbery = yoloSwag.addProductOnSale(99.95, "Shrubbery");
+		Product prunejuice = yoloSwag.addProductOnSale(0.99, "Prune juice - a warrior's drink");
+		Product bonzibuddy = yoloSwag.addProductOnSale(0.0, "Bonzi Buddy!");
 
-		bob.addProduct()
+		ShoppingList list1 = new ShoppingList("Husk på vejen hjem");
+		shoppingLists.add(list1);
+		list1.addPurchase(2, mercedes);
+		list1.addPurchase(1, milk2);
+
+		ShoppingList list2 = new ShoppingList("Ønskeliste");
+		shoppingLists.add(list2);
+		list2.addPurchase(100, bacon);
+		list2.addPurchase(50, bacon2);
+		list2.addPurchase(5, prunejuice);
+	}
+
+	public List<Distributor> getDistributors()
+	{
+		return distributors;
 	}
 }

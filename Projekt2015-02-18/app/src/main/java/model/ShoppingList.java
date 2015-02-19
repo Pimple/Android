@@ -1,20 +1,37 @@
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by HenrikBN on 18-02-2015.
  */
-public class ShoppingList implements Comparable<ShoppingList>
+public class ShoppingList implements Comparable<ShoppingList>, Serializable
 {
 	private String name;
 	private List<Purchase> purchases;
 
 	public ShoppingList(String newName)
 	{
-		this.name = name;
-		this.purchases = new ArrayList<>();
+		this.name = newName;
+		purchases = new ArrayList<>();
+	}
+
+	public Purchase addPurchase(int quantity, Product product)
+	{
+		Purchase newPurchase = new Purchase(quantity, product);
+		purchases.add(newPurchase);
+		return newPurchase;
+	}
+	public void removePurchase(Purchase purchase)
+	{
+		purchases.remove(purchase);
+	}
+
+	public List<Purchase> getPurchases()
+	{
+		return purchases;
 	}
 
 	@Override

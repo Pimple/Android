@@ -1,9 +1,11 @@
 package model;
 
+import java.io.Serializable;
+
 /**
  * Created by HenrikBN on 18-02-2015.
  */
-public class Product implements Comparable<Product>
+public class Product implements Comparable<Product>, Serializable
 {
 	private double price;
 	private String name;

@@ -1,9 +1,11 @@
 package model;
 
+import java.io.Serializable;
+
 /**
  * Created by HenrikBN on 18-02-2015.
  */
-public class Purchase implements Comparable<Purchase>
+public class Purchase implements Comparable<Purchase>, Serializable
 {
 	private int quantity;
 	private Product product;

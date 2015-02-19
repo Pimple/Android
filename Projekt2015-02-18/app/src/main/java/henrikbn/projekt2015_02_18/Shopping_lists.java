@@ -14,7 +14,7 @@ public class Shopping_lists extends ActionBarActivity
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_shopping_lists);
+		setContentView(R.layout.shopping_lists);
 		// getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		// getActionBar().setDisplayHomeAsUpEnabled(true);
 	}
@@ -42,10 +42,6 @@ public class Shopping_lists extends ActionBarActivity
 		{
 			case (R.id.distributors):
 				intent = new Intent(this, Distributors.class);
-				startActivity(intent);
-				return true;
-			case (R.id.product_lists):
-				intent = new Intent(this, Product_lists.class);
 				startActivity(intent);
 				return true;
 			case (R.id.shopping_lists):
