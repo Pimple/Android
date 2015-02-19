@@ -9,4 +9,5 @@ public class ModelType
 	public static final String PRODUCT = "product";
 	public static final String PURCHASE = "purchase";
 	public static final String SHOPPINGLIST = "shoppingList";
+	public static final String DEFAULT = "none";
 }

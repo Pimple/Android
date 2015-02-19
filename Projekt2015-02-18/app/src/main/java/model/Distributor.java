@@ -55,6 +55,11 @@ public class Distributor implements Comparable<Distributor>, Serializable
 		this.products.remove(product);
 	}
 
+	public List<Product> getProducts()
+	{
+		return products;
+	}
+
 	public Product addProductOnSale(double price, String name)
 	{
 		Product newProduct = new Product(price, name);
@@ -64,6 +69,11 @@ public class Distributor implements Comparable<Distributor>, Serializable
 	public void removeProductOnSale(Product product)
 	{
 		this.productsOnSale.remove(product);
+	}
+
+	public List<Product> getProductsOnSale()
+	{
+		return productsOnSale;
 	}
 
 	public String getName()

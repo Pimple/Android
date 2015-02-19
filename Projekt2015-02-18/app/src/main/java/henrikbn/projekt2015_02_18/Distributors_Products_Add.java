@@ -1,6 +1,7 @@
 package henrikbn.projekt2015_02_18;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -24,6 +25,11 @@ public class Distributors_Products_Add extends ActionBarActivity
 
 		if (distributor != null)
 			setTitle(distributor.getName());
+
+		SharedPreferences preferences = getPreferences(0);
+		SharedPreferences.Editor editor = preferences.edit();
+		editor.putString(ModelType.DISTRIBUTOR, distributor.getName());
+		editor.apply();
 	}
 
 	@Override

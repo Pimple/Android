@@ -13,7 +13,8 @@
     <string name="distributors_add_address">Address</string>
 
     <string name="distributors_products">Distributor</string>
-    <string name="distributors_products_text">Items available from this distributor:</string>
+    <string name="distributors_products_text">Items available from this distributor.</string>
+    <string name="distributors_products_text2">Items on sale from this distributor.\n</string>
     <string name="distributors_products_add">New Product</string>
     <string name="distributors_products_add_text">Enter stuff.</string>
 
