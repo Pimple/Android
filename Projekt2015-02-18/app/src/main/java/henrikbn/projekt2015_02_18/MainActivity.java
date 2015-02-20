@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -28,6 +30,22 @@ public class MainActivity extends ActionBarActivity
 		ArrayAdapter<ShoppingList> distributorsAdapter =
 				new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, dao.getShoppingLists());
 		distributorsView.setAdapter(distributorsAdapter);
+
+		distributorsView.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
+		{
+			@Override
+			public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
+			{
+				// Opdater listview D;
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> parent)
+			{
+
+			}
+		});
+
 		// getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		// getActionBar().setDisplayHomeAsUpEnabled(true);
 	}
