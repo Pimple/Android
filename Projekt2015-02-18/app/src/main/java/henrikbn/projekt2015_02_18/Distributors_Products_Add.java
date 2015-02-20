@@ -6,12 +6,16 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
 
+import model.DAO;
 import model.Distributor;
 
 
 public class Distributors_Products_Add extends ActionBarActivity
 {
+	private DAO dao = DAO.getInstance();
 	private Distributor distributor;
 
 	@Override
@@ -21,10 +25,8 @@ public class Distributors_Products_Add extends ActionBarActivity
 		setContentView(R.layout.distributors_products__add);
 
 		Intent intent = getIntent();
-		distributor = (Distributor) intent.getSerializableExtra("distributor");
-
-		if (distributor != null)
-			setTitle(distributor.getName());
+		// distributor = (Distributor) intent.getSerializableExtra("distributor");
+		distributor = dao.getActiveDistributor();
 
 		SharedPreferences preferences = getPreferences(0);
 		SharedPreferences.Editor editor = preferences.edit();
@@ -51,5 +53,16 @@ public class Distributors_Products_Add extends ActionBarActivity
 		}
 
 		return super.onOptionsItemSelected(item);
+	}
+
+	public void addProduct(View view)
+	{
+		Intent intent = new Intent(this, Distributors_Products_Add.class);
+		EditText nameField = (EditText) findViewById(R.id.newProductName);
+		EditText priceField = (EditText) findViewById(R.id.newProductPrice);
+		String name = nameField.getText().toString();
+		double price = Double.parseDouble(priceField.getText().toString());
+		distributor.addProduct(price, name);
+		finish();
 	}
 }

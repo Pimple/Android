@@ -30,7 +30,8 @@ public class Distributors_Products extends ActionBarActivity
 		setContentView(R.layout.distributors_products);
 
 		Intent intent = getIntent();
-		distributor = (Distributor) intent.getSerializableExtra(ModelType.DISTRIBUTOR);
+		// distributor = (Distributor) intent.getSerializableExtra(ModelType.DISTRIBUTOR);
+		distributor = dao.getActiveDistributor();
 
 		if (distributor == null)
 		{
@@ -108,7 +109,7 @@ public class Distributors_Products extends ActionBarActivity
 			case (R.id.distributors_products_add):
 				Intent intent = new Intent(this, Distributors_Products_Add.class);
 				intent.putExtra(ModelType.DISTRIBUTOR, distributor);
-				startActivity(intent);
+				startActivityForResult(intent, 0);
 				return true;
 			default:
 				return super.onOptionsItemSelected(item);

@@ -11,6 +11,7 @@ public class DAO
 {
 	private List<Distributor> distributors;
 	private List<ShoppingList> shoppingLists;
+	private Distributor activeDistributor;
 
 	private static DAO instance;
 
@@ -68,5 +69,25 @@ public class DAO
 	public List<Distributor> getDistributors()
 	{
 		return distributors;
+	}
+
+	public Distributor getActiveDistributor()
+	{
+		return activeDistributor;
+	}
+
+	public void setActiveDistributor(Distributor activeDistributor)
+	{
+		this.activeDistributor = activeDistributor;
+	}
+
+	public List<ShoppingList> getShoppingLists()
+	{
+		return shoppingLists;
+	}
+
+	public void setShoppingLists(List<ShoppingList> shoppingLists)
+	{
+		this.shoppingLists = shoppingLists;
 	}
 }

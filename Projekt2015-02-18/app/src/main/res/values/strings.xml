@@ -17,6 +17,8 @@
     <string name="distributors_products_text2">Items on sale from this distributor.\n</string>
     <string name="distributors_products_add">New Product</string>
     <string name="distributors_products_add_text">Enter stuff.</string>
+    <string name="distributors_products_add_name">Name</string>
+    <string name="distributors_products_add_price">Price</string>
 
     <string name="shopping_lists">Shopping lists</string>
     <string name="shopping_lists_text">Manage your shopping lists here. Remember to get some milk on the way home.</string>

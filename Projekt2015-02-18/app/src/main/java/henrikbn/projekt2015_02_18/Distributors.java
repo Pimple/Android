@@ -54,6 +54,7 @@ public class Distributors extends ActionBarActivity
 		Intent intent = new Intent(this, Distributors_Products.class);
 		Distributor distributor = (Distributor) listView.getItemAtPosition(position);
 		intent.putExtra(ModelType.DISTRIBUTOR, distributor);
+		dao.setActiveDistributor(distributor);
 		startActivity(intent);
 	}
 

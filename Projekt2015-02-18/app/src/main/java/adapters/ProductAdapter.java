@@ -30,13 +30,15 @@ public class ProductAdapter extends ArrayAdapter<Product>
 
 		// Check if an existing view is being reused, otherwise inflate the view
 		if (convertView == null)
-			convertView = LayoutInflater.from(getContext()).inflate(R.layout.listview_distributors, parent, false);
+			convertView = LayoutInflater.from(getContext()).inflate(R.layout.listview_products, parent, false);
 
 		// Lookup view for data population
-		TextView productName = (TextView) convertView.findViewById(R.id.listView_distributorName);
+		TextView productName = (TextView) convertView.findViewById(R.id.listView_productName);
+		TextView productPrice = (TextView) convertView.findViewById(R.id.listView_productPrice);
 
 		// Populate the data into the template view using the data object
 		productName.setText(product.getName());
+		productPrice.setText(product.getPrice() + "");
 
 		// Return the completed view to render on screen
 		return convertView;

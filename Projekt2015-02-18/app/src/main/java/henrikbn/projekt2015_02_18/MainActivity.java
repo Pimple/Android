@@ -6,20 +6,28 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Spinner;
 
 import model.DAO;
+import model.Distributor;
+import model.ShoppingList;
 
 
 public class MainActivity extends ActionBarActivity
 {
-	private DAO dao;
+	private DAO dao = DAO.getInstance();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
-		dao = DAO.getInstance();
+		Spinner distributorsView = (Spinner) findViewById(R.id.shopping_lists);
+		ArrayAdapter<ShoppingList> distributorsAdapter =
+				new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, dao.getShoppingLists());
+		distributorsView.setAdapter(distributorsAdapter);
 		// getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		// getActionBar().setDisplayHomeAsUpEnabled(true);
 	}
@@ -27,7 +35,6 @@ public class MainActivity extends ActionBarActivity
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu)
 	{
-		// Inflate the menu; this adds items to the action bar if it is present.
 		MenuInflater menuInflater = getMenuInflater();
 		menuInflater.inflate(R.menu.menu_main, menu);
 		return true;
@@ -36,12 +43,8 @@ public class MainActivity extends ActionBarActivity
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item)
 	{
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 
-		//noinspection SimplifiableIfStatement
 		Intent intent = null;
 
 		switch (id)
