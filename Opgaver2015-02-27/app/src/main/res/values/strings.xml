@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Opgaver2015-02-27</string>
+
+    <string name="add_time">This is a waste of time</string>
+
+    <string name="remove_time">This is a waste of time also</string>
+
+    <string name="edit_time">This is a horrible waste of time</string>
+
+
+    <string name="action_settings">There are no settings, go away</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
