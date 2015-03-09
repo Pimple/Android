@@ -41,7 +41,7 @@
         android:id="@+id/newProductPrice"
         android:layout_row="1"
         android:layout_column="1"
-        android:inputType="text|numberDecimal"/>
+        android:inputType="text"/>
 
     <Button
         android:layout_width="wrap_content"

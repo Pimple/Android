@@ -20,7 +20,7 @@ public class Distributors_Products extends ActionBarActivity
 {
 	private DAO dao = DAO.getInstance();
 	private ProductAdapter productAdapter, productOnSaleAdapter;
-	private Distributor distributor;
+	private Distributor distributor = dao.getActiveDistributor();
 	private ListView productsView, productsOnSaleView;
 
 	@Override
@@ -31,14 +31,6 @@ public class Distributors_Products extends ActionBarActivity
 
 		Intent intent = getIntent();
 		// distributor = (Distributor) intent.getSerializableExtra(ModelType.DISTRIBUTOR);
-		distributor = dao.getActiveDistributor();
-
-		if (distributor == null)
-		{
-			SharedPreferences preferences = getPreferences(0);
-			String distributorName = preferences.getString(ModelType.DISTRIBUTOR, ModelType.DEFAULT);
-			distributor = dao.getDistributor(distributorName);
-		}
 
 		setTitle(distributor.getName());
 		updateInterface();
@@ -69,8 +61,8 @@ public class Distributors_Products extends ActionBarActivity
 	{
 		// distributor = (Distributor) savedInstanceState.getSerializable(ModelType.DISTRIBUTOR);
 
-		String distributorName = savedInstanceState.getString(ModelType.DISTRIBUTOR);
-		distributor = dao.getDistributor(distributorName);
+		// String distributorName = savedInstanceState.getString(ModelType.DISTRIBUTOR);
+		// distributor = dao.getDistributor(distributorName);
 
 		updateInterface();
 
