@@ -51,7 +51,8 @@ public class DeepThought extends SQLiteOpenHelper
 	@Override
 	public void onUpgrade(SQLiteDatabase database, int oldVersion, int newVersion)
 	{
-		Log.w(DeepThought.class.getName(), "Upgrading database from version " + oldVersion + " to " + newVersion + ". Good luck.");
+		Log.w(DeepThought.class.getName(), "Upgraded database from version " + oldVersion + " to " + newVersion + ". " +
+				"Good luck.");
 		database.execSQL("drop table if exists " + TABLE);
 		onCreate(database);
 	}
