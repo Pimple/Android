@@ -8,14 +8,16 @@ import android.view.MenuItem;
 
 public class MainActivity extends ActionBarActivity
 {
-	private TravelJournalDAO dao;
+	// private TravelJournalDAO dao;
+	private TemporaryFailDAO dao;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		dao = TravelJournalDAO.getInstance(this);
+		// dao = TravelJournalDAO.getInstance(this);
+		dao = TemporaryFailDAO.getInstance();
 	}
 
 	@Override
