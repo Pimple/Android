@@ -40,7 +40,7 @@ public class TravelJournalDAO
 	 */
 	private void populate()
 	{
-		String sql = "SELECT count(*) FROM table";
+		String sql = "SELECT count(*) FROM " + DeepThought.TABLE;
 		Cursor cursor = database.rawQuery(sql, null);
 		cursor.moveToFirst();
 		int count = cursor.getInt(0);

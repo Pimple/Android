@@ -5,19 +5,25 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.List;
+
 
 public class MainActivity extends ActionBarActivity
 {
-	// private TravelJournalDAO dao;
-	private TemporaryFailDAO dao;
+	private TravelJournalDAO dao;
+	// private TemporaryFailDAO dao;
+
+	private List<TravelJournal> journals;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		// dao = TravelJournalDAO.getInstance(this);
-		dao = TemporaryFailDAO.getInstance();
+		dao = TravelJournalDAO.getInstance(this);
+		// dao = TemporaryFailDAO.getInstance();
+
+		journals = dao.getAllTravelJournals();
 	}
 
 	@Override

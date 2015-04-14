@@ -27,7 +27,7 @@ public class DeepThought extends SQLiteOpenHelper
 	private static final int VERSION = 1;
 
 	private static final String CREATE_DATABASE =
-			"create table " + TABLE +
+			"create table if not exists " + TABLE +
 			"(" +
 				ID + " integer primary key autoincrement, " +
 				TITLE + " text not null, " +
@@ -35,7 +35,7 @@ public class DeepThought extends SQLiteOpenHelper
 				ADDRESS + " text not null, " +
 				PICTURE + " text null, " +
 				DATE_VISITED + " text not null, " +
-				VISIT_AGAIN + " boolean not null check(" + VISIT_AGAIN + " in (0,1)" +
+				VISIT_AGAIN + " boolean not null check(" + VISIT_AGAIN + " in (0,1))" +
 			");";
 
 	public DeepThought(Context context)
