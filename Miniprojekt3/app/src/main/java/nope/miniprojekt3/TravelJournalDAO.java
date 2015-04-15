@@ -107,4 +107,16 @@ public class TravelJournalDAO
 		}
 		return journals;
 	}
+
+	public List<TravelJournal> getAllTravelJournalsToVisitAgain()
+	{
+		List<TravelJournal> allJournals = getAllTravelJournals();
+		List<TravelJournal> wantedJournals = new ArrayList<>();
+
+		for (TravelJournal journal : allJournals)
+			if (journal.isVisitAgain())
+				wantedJournals.add(journal);
+
+		return wantedJournals;
+	}
 }

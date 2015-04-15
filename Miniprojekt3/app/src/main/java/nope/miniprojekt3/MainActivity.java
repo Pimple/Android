@@ -4,6 +4,10 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 import java.util.List;
 
@@ -14,6 +18,7 @@ public class MainActivity extends ActionBarActivity
 	// private TemporaryFailDAO dao;
 
 	private List<TravelJournal> journals;
+	private ListView journalsView;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -23,7 +28,32 @@ public class MainActivity extends ActionBarActivity
 		dao = TravelJournalDAO.getInstance(this);
 		// dao = TemporaryFailDAO.getInstance();
 
-		journals = dao.getAllTravelJournals();
+		RadioGroup radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
+
+		radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
+		{
+			@Override
+			public void onCheckedChanged(RadioGroup group, int checkedId)
+			{
+				updateListView();
+			}
+		});
+		updateListView();
+	}
+
+	private void updateListView()
+	{
+		RadioButton filterAll = (RadioButton) findViewById(R.id.filterAll);
+		RadioButton filterVisitAgain = (RadioButton) findViewById(R.id.filterVisitAgain);
+
+		if (filterVisitAgain.isChecked())
+			journals = dao.getAllTravelJournalsToVisitAgain();
+		else
+			journals = dao.getAllTravelJournals();
+
+		ArrayAdapter<TravelJournal> journalAdapter = new TravelJournalAdapter(this, journals);
+		journalsView = (ListView) findViewById(R.id.journalsView);
+		journalsView.setAdapter(journalAdapter);
 	}
 
 	@Override
@@ -43,7 +73,7 @@ public class MainActivity extends ActionBarActivity
 		int id = item.getItemId();
 
 		//noinspection SimplifiableIfStatement
-		if (id == R.id.action_settings)
+		if (id == R.id.add_journal)
 		{
 			return true;
 		}
