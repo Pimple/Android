@@ -35,9 +35,6 @@ public class TravelJournalDAO
 		return instance;
 	}
 
-	/**
-	 * This method is for testing only.
-	 */
 	private void populate()
 	{
 		String sql = "SELECT count(*) FROM " + DeepThought.TABLE;

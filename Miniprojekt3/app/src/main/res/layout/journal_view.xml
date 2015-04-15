@@ -95,19 +95,21 @@
         android:layout_marginRight="2dp"
         android:layout_marginTop="5dp"
         android:text="Description of the journal"
-        android:textAppearance="?android:attr/textAppearanceLarge"/>
+        android:textAppearance="?android:attr/textAppearanceMedium"/>
 
     <ImageButton
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:id="@+id/editJournal"
-        android:src="@drawable/edit32"/>
+        android:src="@drawable/edit32"
+        android:layout_gravity="top|right"/>
 
     <ImageButton
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:id="@+id/removeJournal"
-        android:src="@drawable/delete32"/>
+        android:src="@drawable/delete32"
+        android:layout_gravity="top|right"/>
 
 
     </LinearLayout>
