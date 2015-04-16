@@ -1,5 +1,7 @@
 package nope.miniprojekt3;
 
+import android.content.DialogInterface;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -75,7 +77,9 @@ public class MainActivity extends ActionBarActivity
 		//noinspection SimplifiableIfStatement
 		if (id == R.id.add_journal)
 		{
-			return true;
+			AddJournalFragment newFragment = new AddJournalFragment();
+			newFragment.show(getFragmentManager(), "addJournal");
+			updateListView();
 		}
 
 		return super.onOptionsItemSelected(item);

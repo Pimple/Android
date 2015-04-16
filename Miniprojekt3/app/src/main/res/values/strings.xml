@@ -5,6 +5,6 @@
     <string name="action_settings">Settings</string>
     <string name="action_add_journal">Add Journal</string>
 
-<!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_journal_cancel">Cancel</string>
+    <string name="add_journal_save">Save</string>
 </resources>
