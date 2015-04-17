@@ -7,4 +7,5 @@
 
     <string name="add_journal_cancel">Cancel</string>
     <string name="add_journal_save">Save</string>
+    <string name="title_activity_edit_journal">Edit Journal</string>
 </resources>

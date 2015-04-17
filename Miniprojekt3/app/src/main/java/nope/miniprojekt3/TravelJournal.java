@@ -2,10 +2,12 @@ package nope.miniprojekt3;
 
 import org.joda.time.LocalDate;
 
+import java.io.Serializable;
+
 /**
  * Created by HenrikBN on 10-04-2015.
  */
-public class TravelJournal
+public class TravelJournal implements Serializable
 {
 	private int id;
 	private String title, note, address, picture;

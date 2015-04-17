@@ -1,8 +1,5 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto"
       xmlns:tools="http://schemas.android.com/tools"
-      tools:context=".MainActivity">
-
-    <item android:id="@+id/add_journal"
-          android:title="@string/action_add_journal"/>
+      tools:context="nope.miniprojekt3.EditJournal">
 </menu>

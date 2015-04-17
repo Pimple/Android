@@ -1,12 +1,14 @@
 package nope.miniprojekt3;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -15,15 +17,20 @@ import java.util.List;
  */
 public class TravelJournalAdapter extends ArrayAdapter<TravelJournal>
 {
+	private TravelJournalDAO dao;
+	private Context context;
+
 	public TravelJournalAdapter(Context context, List<TravelJournal> distributors)
 	{
 		super(context, 0, distributors);
+		this.context = context;
+		this.dao = TravelJournalDAO.getInstance(this.context);
 	}
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent)
 	{
-		TravelJournal journal = getItem(position);
+		final TravelJournal journal = getItem(position);
 
 		if (convertView == null)
 			convertView = LayoutInflater.from(getContext()).inflate(R.layout.journal_view, parent, false);
@@ -67,7 +74,9 @@ public class TravelJournalAdapter extends ArrayAdapter<TravelJournal>
 			@Override
 			public void onClick(View v)
 			{
-				//  TODO
+				Intent intent = new Intent(context, EditJournal.class);
+				intent.putExtra("journal", journal);
+				context.startActivity(intent);
 			}
 		});
 
@@ -76,7 +85,14 @@ public class TravelJournalAdapter extends ArrayAdapter<TravelJournal>
 			@Override
 			public void onClick(View v)
 			{
-				//  TODO
+				boolean deleted = dao.removeTravelJournal(journal);
+				String resultText;
+				if (deleted)
+					resultText = journal.getTitle() + " was deleted. Btw update the list yourself.";
+				else
+					resultText = journal.getTitle() + " could not be deleted.";
+				Toast toast = Toast.makeText(context, resultText, Toast.LENGTH_SHORT);
+				toast.show();
 			}
 		});
 

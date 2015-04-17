@@ -46,7 +46,7 @@ public class TravelJournalDAO
 		{
 			createTravelJournal("Bingo", "Det var godt nok sjov`!", "Østervold 1, 8900 Randers, Danmark", null,
 					"2015-03-15", true);
-			createTravelJournal("Læst en bog \"i det fri\"", "Endnu en dag. Endnu et eventyr. Og " +
+			createTravelJournal("Læst en bog", "Endnu en dag. Endnu et eventyr. Og " +
 							"bogen var ikke helt dårlig. Kun næsten.","Jernbanegade 29, Randers C", null, "2014-08-29", true);
 			createTravelJournal("Grækenland",
 					"De er gale i hovedet og der er skrald over det hele! Rejser aldrig igen.",
@@ -88,6 +88,26 @@ public class TravelJournalDAO
 		newJournal = createObjectFromCursor(newRow);
 		newRow.close();
 		return newJournal;
+	}
+
+	public boolean updateTravelJournal(TravelJournal journal, String title, String note,
+			String address, String picture, String dateVisited, boolean visitAgain)
+	{
+		ContentValues newValues = new ContentValues();
+		newValues.put(DeepThought.TITLE, title);
+		newValues.put(DeepThought.NOTE, note);
+		newValues.put(DeepThought.ADDRESS, address);
+		newValues.put(DeepThought.PICTURE, picture);
+		newValues.put(DeepThought.DATE_VISITED, dateVisited);
+		newValues.put(DeepThought.VISIT_AGAIN, visitAgain);
+
+		return database.update(DeepThought.TABLE, newValues,
+				DeepThought.ID + " = " + journal.getId(), null) > 0;
+	}
+
+	public boolean removeTravelJournal(TravelJournal journal)
+	{
+		return database.delete(DeepThought.TABLE, DeepThought.ID + "=" + journal.getId(), null) > 0;
 	}
 
 	public List<TravelJournal> getAllTravelJournals()

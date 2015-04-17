@@ -9,8 +9,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import org.joda.time.LocalDate;
 
 public class AddJournalFragment extends DialogFragment
 {
@@ -29,7 +33,7 @@ public class AddJournalFragment extends DialogFragment
 		final EditText newNote = (EditText) view.findViewById(R.id.newNote);
 		final EditText newAddress = (EditText) view.findViewById(R.id.newAddress);
 		final EditText newPicture = (EditText) view.findViewById(R.id.newPicture);
-		final EditText newDate = (EditText) view.findViewById(R.id.newDate);
+		final DatePicker newDate = (DatePicker) view.findViewById(R.id.newDate);
 		final CheckBox newVisitAgain = (CheckBox) view.findViewById(R.id.newVisitAgain);
 
 		builder.setView(view)
@@ -42,10 +46,14 @@ public class AddJournalFragment extends DialogFragment
 						String note = newNote.getText().toString();
 						String address = newAddress.getText().toString();
 						String picture = newPicture.getText().toString();
-						String date = newDate.getText().toString();
+						String date = new LocalDate(newDate.getYear(), newDate.getMonth(),
+								newDate.getDayOfMonth()).toString();
 						boolean visitAgain = newVisitAgain.isChecked();
 
 						dao.createTravelJournal(title, note, address, picture, date, visitAgain);
+						Toast toast = Toast.makeText(getActivity(), "Added journal. Automatic " +
+								"updating of list not implemented yet :p", Toast.LENGTH_SHORT);
+						toast.show();
 					}
 				})
 				.setNegativeButton(R.string.add_journal_cancel, new DialogInterface.OnClickListener()

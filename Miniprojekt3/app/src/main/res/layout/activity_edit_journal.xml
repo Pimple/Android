@@ -2,26 +2,24 @@
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context="nope.miniprojekt3.AddJournalFragment">
+            tools:context="nope.miniprojekt3.EditJournal">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin">
 
         <TextView
-            android:id="@+id/textView"
-            android:layout_width="fill_parent"
+            android:id="@+id/editJournalTitle"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_column="0"
-            android:layout_gravity="center_horizontal"
-            android:layout_row="0"
-            android:layout_rowSpan="2"
-            android:gravity="fill"
-            android:padding="5dp"
-            android:text="Add Journal"
+            android:layout_margin="5dp"
+            android:text="Edit Journal"
             android:textAppearance="?android:attr/textAppearanceLarge"/>
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -175,6 +173,32 @@
                 android:layout_marginTop="5dp"
                 android:layout_weight="1"
                 android:text="Visit again?"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_row="2"
+                android:layout_weight="0"
+                android:width="100dp"
+                android:padding="5dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                />
+
+            <Button
+                android:id="@+id/submitButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="updateJournal"
+                android:text="Make it so."/>
         </LinearLayout>
 
     </LinearLayout>
