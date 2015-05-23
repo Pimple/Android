@@ -42,7 +42,7 @@ public class DAO
 		values.put(Data.KOERSEL_KM_TIL, kmTil);
 		values.put(Data.KOERSEL_KM_I_ALT, kmIAlt);
 		values.put(Data.KOERSEL_FORMAAL, formaal);
-		return database.insert(datahelper.KOERSLER_TABELNAVN, null, values);
+		return database.insert(Data.KOERSLER_TABELNAVN, null, values);
 	}
 
 	public long opdaterKoersel(long id, long adresseFra, long adresseTil, String regNr, LocalDateTime datoFra,
@@ -98,18 +98,18 @@ public class DAO
 
 	public String hentAdresse(int id)
 	{
-		String[] columns = new String[] { Data.ADRESSE };
+		// String[] columns = new String[] { Data.ADRESSE };
 		String where = Data.ADRESSE_ID + " = ?";
 		String[] args = new String[] { Integer.toString(id) };
-		Cursor cursor = database.query(Data.ADRESSE_TABELNAVN, columns, where, args, null, null, null);
+		Cursor cursor = database.query(Data.ADRESSE_TABELNAVN, Data.ADRESSE_COLUMNS, where, args, null, null, null);
 		int adresseIndex = cursor.getColumnIndex(Data.ADRESSE);
 		return cursor.getString(adresseIndex);
 	}
 
 	public void factoryReset()
 	{
-		database.rawQuery("delete * from " + Data.KOERSLER_TABELNAVN, null, null);
-		database.rawQuery("delete * from " + Data.ADRESSE_TABELNAVN, null, null);
+		database.delete(Data.KOERSLER_TABELNAVN, null, null);
+		database.delete(Data.ADRESSE_TABELNAVN, null, null);
 		// datahelper.onCreate(database);
 
 		long sesamStreet = opretAdresse("Sesame Street");
