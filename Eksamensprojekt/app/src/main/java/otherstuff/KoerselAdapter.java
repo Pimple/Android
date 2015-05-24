@@ -34,17 +34,6 @@ public class KoerselAdapter extends android.support.v4.widget.CursorAdapter
 	@Override
 	public void bindView(View view, Context context, Cursor cursor)
 	{
-//		public static final String KOERSEL_ID = "_id";
-//		public static final String KOERSEL_ADRESSE_FRA = "adresse_fra";
-//		public static final String KOERSEL_ADRESSE_TIL = "adresse_til";
-//		public static final String KOERSEL_REG_NR = "reg_nr";
-//		public static final String KOERSEL_DATO_FRA = "dato_fra";
-//		public static final String KOERSEL_DATO_TIL = "dato_til";
-//		public static final String KOERSEL_KM_FRA = "km_fra";
-//		public static final String KOERSEL_KM_TIL = "km_til";
-//		public static final String KOERSEL_KM_I_ALT = "km_i_alt";
-//		public static final String KOERSEL_FORMAAL = "formaal";
-
 		DAO dao = DAO.getInstance(view.getContext());
 
 		int adresseFraId = cursor.getInt(cursor.getColumnIndex("adresse_fra"));
@@ -70,15 +59,15 @@ public class KoerselAdapter extends android.support.v4.widget.CursorAdapter
 
 		adresseView.setText(forkortStreng(adresseFra, 10) + " → " + forkortStreng(adresseTil, 10));
 		regNrView.setText(regNr);
-		datoView.setText(datoFra + " → " + adresseTil);
-		kmView.setText("" + kmFra + " → " + kmTil + " (" + kmIAlt + ")");
+		datoView.setText(forkortStreng(datoFra, 10) + " → " + forkortStreng(datoTil, 10));
+		kmView.setText("" + kmFra + "km → " + kmTil + "km (" + kmIAlt + "km)");
 		formaalView.setText(formaal);
 	}
 
 	private String forkortStreng(String streng, int maksTegn)
 	{
 		if (streng.length() > maksTegn)
-			return streng.substring(maksTegn);
+			return streng.substring(0, maksTegn);
 		else
 			return streng;
 	}

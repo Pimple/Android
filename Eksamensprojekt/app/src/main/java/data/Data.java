@@ -11,7 +11,7 @@ import android.util.Log;
 public class Data extends SQLiteOpenHelper
 {
 	private static final String SKEMA_FIL = "skema.db";
-	private static final int VERSION = 2;
+	private static final int VERSION = 3;
 
 	public static final String KOERSEL_ID = "_id";
 	public static final String KOERSEL_ADRESSE_FRA = "adresse_fra";
@@ -46,16 +46,18 @@ public class Data extends SQLiteOpenHelper
 
 	public static final String ADRESSE_ID = "_id";
 	public static final String ADRESSE = "adresse";
+	public static final String ADRESSE_PRIVAT = "privat";
 
-	public static final String[] ADRESSE_COLUMNS = { ADRESSE_ID, ADRESSE };
+	public static final String[] ADRESSE_COLUMNS = { ADRESSE_ID, ADRESSE, ADRESSE_PRIVAT };
 	public static final String ADRESSE_TABELNAVN = "adresser";
 
 	public static final String OPRET_ADRESSER =
 			"create table if not exists " + ADRESSE_TABELNAVN +
 			"(" +
 					ADRESSE_ID + " integer primary key autoincrement, " +
-					ADRESSE + " text not null" +
-			");";
+					ADRESSE + " text not null, " +
+					ADRESSE_PRIVAT + " boolean not null check (" + ADRESSE_PRIVAT + " in (0,1))" +
+		");";
 
 	public Data(Context context)
 	{

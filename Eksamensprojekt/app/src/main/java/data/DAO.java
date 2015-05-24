@@ -82,12 +82,14 @@ public class DAO
 		return database.rawQuery("select * from " + Data.KOERSLER_TABELNAVN, null);
 	}
 
-	public long opretAdresse(String adresse)
+	public long opretAdresse(String adresse, boolean privat)
 	{
+		// int privatAsInt = (privat)? 1 : 0;
+
 		ContentValues values = new ContentValues();
 		values.put(Data.ADRESSE, adresse);
+		values.put(Data.ADRESSE_PRIVAT, privat);
 		long adresseId = database.insert(Data.ADRESSE_TABELNAVN, null, values);
-		// TODO debug. Why -1? Because it goes wrong, but why does it go wrong D:
 		return adresseId;
 	}
 
@@ -96,14 +98,27 @@ public class DAO
 		return database.rawQuery("select * from " + Data.ADRESSE_TABELNAVN, null);
 	}
 
-	public String hentAdresse(int id)
+	public String hentAdresse(long id)
 	{
-		// String[] columns = new String[] { Data.ADRESSE };
-		String where = Data.ADRESSE_ID + " = ?";
-		String[] args = new String[] { Integer.toString(id) };
-		Cursor cursor = database.query(Data.ADRESSE_TABELNAVN, Data.ADRESSE_COLUMNS, where, args, null, null, null);
+		Cursor cursor = database.query(Data.ADRESSE_TABELNAVN, Data.ADRESSE_COLUMNS, Data.ADRESSE_ID + " = " + id,
+				null, null, null, null);
+		if (cursor.getCount() < 1)
+			return null;
+
+		cursor.moveToFirst();
 		int adresseIndex = cursor.getColumnIndex(Data.ADRESSE);
-		return cursor.getString(adresseIndex);
+		String adresse = cursor.getString(adresseIndex);
+
+		int privatIndex = cursor.getColumnIndex(Data.ADRESSE_PRIVAT);
+		boolean privat = cursor.getInt(privatIndex) != 0;
+
+		if (privat)
+			adresse = "(P) " + adresse;
+		else
+			adresse = "(E) " + adresse;
+
+		cursor.close();
+		return adresse;
 	}
 
 	public void factoryReset()
@@ -112,10 +127,10 @@ public class DAO
 		database.delete(Data.ADRESSE_TABELNAVN, null, null);
 		// datahelper.onCreate(database);
 
-		long sesamStreet = opretAdresse("Sesame Street");
-		long disneyLand = opretAdresse("Disney Land");
-		long adresse1 = opretAdresse("Adresse1");
-		long adresse2 = opretAdresse("Adresse2");
+		long sesamStreet = opretAdresse("Sesame Street", true);
+		long disneyLand = opretAdresse("Disney Land", false);
+		long adresse1 = opretAdresse("Adresse1", false);
+		long adresse2 = opretAdresse("Adresse2", false);
 
 		opretKoersel(adresse1, adresse2, "H3RP4D3RP", new LocalDateTime(2014, 6, 12, 15, 42),
 				new LocalDateTime(2014, 6, 12, 16, 15), 0.0, 100.5, 101, "Vigtigt vigtigt møde.");
