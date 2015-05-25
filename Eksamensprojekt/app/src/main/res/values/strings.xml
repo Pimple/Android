@@ -4,7 +4,10 @@
     <string name="title_section1">Oversigt</string>
     <string name="title_section2">Registrerede Kørsler</string>
     <string name="title_section3">Registrerede Kørsler II</string>
-    <string name="title_section4">Ny Kørsel</string>
+    <string name="title_section4">Juster Bruger</string>
+    <string name="title_section5">Ny Kørsel</string>
+    <string name="title_section6">Ny Adresse</string>
+    <string name="title_section7">Mail Kørsel</string>
 
     <string name="navigation_drawer_open">Åbn navigations... skuffe?</string>
     <string name="navigation_drawer_close">Luk navigations... skuffe?</string>
@@ -25,6 +28,18 @@
     <string name="bruger_adresse">Adresse</string>
     <string name="bruger_juster_button">Opdater bruger</string>
 
+    <string name="koersel_titel">Ny Kørsel</string>
+    <string name="koersel_adresse_fra">Fra adresse</string>
+    <string name="koersel_adresse_til">Til adresse</string>
+    <string name="koersel_dato_fra">Fra tid</string>
+    <string name="koersel_dato_til">Til tid</string>
+    <string name="koersel_reg_nr">Reg. nr.</string>
+    <string name="koersel_km_fra">KM før</string>
+    <string name="koersel_km_til">KM efter</string>
+    <string name="koersel_formaal">Formål</string>
+    <string name="koersel_opret_button">Gem Kørsel</string>
+
 
     <string name="toast_opdateret_bruger">Brugeren blev opdateret.</string>
+    <string name="toast_oprettet_koersel">Kørslen blev oprettet.</string>
 </resources>

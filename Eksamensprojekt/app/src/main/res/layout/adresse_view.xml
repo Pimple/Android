@@ -8,14 +8,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="#"
-        android:id="@+id/adresse_id"
-        android:layout_margin="5dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="P"
         android:id="@+id/adresse_privat"
         android:layout_margin="5dp"/>

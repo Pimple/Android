@@ -56,6 +56,19 @@ public class MainActivity extends ActionBarActivity	implements NavigationDrawerF
 				nytIndhold = new AlleKoerslerFragment();
 				break;
 			case 2:
+				nytIndhold = new AlleKoerslerSlideFragment();
+				break;
+			case 3:
+				nytIndhold = new BrugerFragment();
+				break;
+			case 4:
+				nytIndhold = new NyKoerselFragment();
+				break;
+			case 5:
+				// nytIndhold = new NyAdresseFragment();
+				break;
+			case 6:
+				// nytIndhold = new MailFragment();
 				break;
 		}
 		if (nytIndhold == null)
@@ -66,7 +79,7 @@ public class MainActivity extends ActionBarActivity	implements NavigationDrawerF
 		else
 		{
 			fragmentManager.beginTransaction()
-					.replace(R.id.container, nytIndhold) // PlaceholderFragment.newInstance(position + 1)
+					.replace(R.id.container, nytIndhold)
 					.commit();
 		}
 	}
@@ -84,6 +97,14 @@ public class MainActivity extends ActionBarActivity	implements NavigationDrawerF
 			case 3:
 				mTitle = getString(R.string.title_section3);
 				break;
+			case 4:
+				mTitle = getString(R.string.title_section4);
+			case 5:
+				mTitle = getString(R.string.title_section5);
+			case 6:
+				mTitle = getString(R.string.title_section6);
+			case 7:
+				mTitle = getString(R.string.title_section7);
 		}
 	}
 
@@ -119,9 +140,9 @@ public class MainActivity extends ActionBarActivity	implements NavigationDrawerF
 		}
 		else if (id == R.id.action_juster_bruger)
 		{
-			FragmentManager fm = getSupportFragmentManager();
-			BrugerFragment brugerFragment = new BrugerFragment();
-			brugerFragment.show(fm, "bruger_dialog");
+			// FragmentManager fm = getSupportFragmentManager();
+			// BrugerFragment brugerFragment = new BrugerFragment();
+			// brugerFragment.show(fm, "bruger_dialog");
 			return true;
 		}
 

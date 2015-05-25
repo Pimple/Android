@@ -18,14 +18,14 @@ import data.DAO;
 import data.Data;
 import otherstuff.AdresseAdapter;
 
-public class BrugerFragment extends android.support.v4.app.DialogFragment
+public class BrugerFragment extends android.support.v4.app.Fragment
 {
 	public BrugerFragment() {}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 	{
-		getDialog().setTitle(getString(R.string.bruger_dialog_titel));
+		getActivity().setTitle(getString(R.string.bruger_dialog_titel));
 
 		View view = inflater.inflate(R.layout.fragment_bruger, container, false);
 
@@ -52,7 +52,7 @@ public class BrugerFragment extends android.support.v4.app.DialogFragment
 				Toast toast = Toast.makeText(getActivity(), getText(R.string.toast_opdateret_bruger),
 						Toast.LENGTH_SHORT);
 				toast.show();
-				getDialog().dismiss();
+				// getDialog().dismiss();
 			}
 		});
 

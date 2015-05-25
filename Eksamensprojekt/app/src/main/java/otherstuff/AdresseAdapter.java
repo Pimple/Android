@@ -36,12 +36,9 @@ public class AdresseAdapter extends CursorAdapter
 		long id = cursor.getLong(cursor.getColumnIndex(Data.ADRESSE_ID));
 		String adresse = cursor.getString(cursor.getColumnIndex(Data.ADRESSE));
 		boolean privat = cursor.getInt(cursor.getColumnIndex(Data.ADRESSE_PRIVAT)) != 0;
-
-		TextView idView = (TextView) view.findViewById(R.id.adresse_id);
 		TextView adresseView = (TextView) view.findViewById(R.id.adresse);
 		TextView privatView = (TextView) view.findViewById(R.id.adresse_privat);
 
-		idView.setText(id + "");
 		adresseView.setText(adresse);
 
 		if (privat)
